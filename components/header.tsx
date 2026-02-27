@@ -29,17 +29,27 @@ export function Header() {
           : "border-foreground/10 bg-background/70"
       )}>
       <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-6">
-        <Link href="#hero" className="text-sm font-semibold tracking-wide">
+        <Link href="/" className="text-sm font-semibold tracking-wide">
           DRNL
         </Link>
         <nav className="flex items-center gap-6 text-sm">
           <Link
-            href="#about"
+            href="/services"
+            className="text-foreground/75 transition-colors hover:text-foreground">
+            Services
+          </Link>
+          <Link
+            href="/projects"
+            className="text-foreground/75 transition-colors hover:text-foreground">
+            Projects
+          </Link>
+          <Link
+            href="/#about"
             className="text-foreground/75 transition-colors hover:text-foreground">
             About
           </Link>
           <Link
-            href="#contact"
+            href="/#contact"
             className="text-foreground/75 transition-colors hover:text-foreground">
             Contact
           </Link>
