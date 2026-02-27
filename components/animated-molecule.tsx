@@ -43,11 +43,32 @@ export function AnimatedMolecule({
 
     gsap.set(atoms, {
       opacity: 0,
-      scale: 0.6,
+      scale: 0,
       transformOrigin: "center center",
     });
 
-    const timeline = gsap.timeline({
+    const intro = gsap.timeline({ delay: 0.3 });
+
+    intro
+      .to(bonds, {
+        strokeDashoffset: 0,
+        duration: 0.6,
+        stagger: 0.06,
+        ease: "power3.out",
+      })
+      .to(
+        atoms,
+        {
+          opacity: 1,
+          scale: 1,
+          duration: 0.4,
+          stagger: 0.04,
+          ease: "back.out(1.7)",
+        },
+        "-=0.4"
+      );
+
+    const scrollTl = gsap.timeline({
       scrollTrigger: {
         trigger,
         start: "top 80%",
@@ -56,26 +77,7 @@ export function AnimatedMolecule({
       },
     });
 
-    timeline
-      .to(
-        bonds,
-        {
-          strokeDashoffset: 0,
-          stagger: 0.08,
-          ease: "none",
-        },
-        0
-      )
-      .to(
-        atoms,
-        {
-          opacity: 1,
-          scale: 1,
-          stagger: 0.08,
-          ease: "none",
-        },
-        0.1
-      )
+    scrollTl
       .to(
         molecule,
         {
@@ -88,16 +90,17 @@ export function AnimatedMolecule({
       .to(
         wrapper,
         {
-          scale: 0.96,
-          opacity: 0.92,
+          scale: 0.92,
+          opacity: 0.85,
           ease: "none",
         },
-        0.2
+        0
       );
 
     return () => {
-      timeline.kill();
-      timeline.scrollTrigger?.kill();
+      intro.kill();
+      scrollTl.kill();
+      scrollTl.scrollTrigger?.kill();
     };
   }, [triggerId]);
 
