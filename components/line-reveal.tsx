@@ -41,8 +41,8 @@ export function LineReveal({
       ease: "none",
       scrollTrigger: {
         trigger: wrapper,
-        start: "top 85%",
-        end: "bottom 65%",
+        start: "top 95%",
+        end: "bottom 30%",
         scrub: true,
       },
     });
