@@ -1,20 +1,6 @@
+import Link from "next/link";
 import { LineReveal } from "@/components/line-reveal";
-import { Badge } from "@/components/ui/badge";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-
-const capabilities = [
-  "Pharmaceutical API",
-  "Intermediates",
-  "Custom Synthesis",
-  "Analytical Testing",
-  "Specialty Chemicals",
-];
+import { Button } from "@/components/ui/button";
 
 export function About() {
   return (
@@ -29,47 +15,31 @@ export function About() {
           <h2 className="text-3xl font-semibold tracking-tight md:text-5xl">
             Research-focused chemistry solutions
           </h2>
-          <p className="mt-6 max-w-2xl text-base leading-relaxed text-foreground/75">
+          <p className="mt-6 max-w-xl text-base leading-relaxed text-foreground/75">
             Dr Nagar&apos;s Laboratories is a research and development company
-            based in Vadodara, Gujarat. We support clients with process R&amp;D,
-            analytical testing, and method development for pharmaceutical and
-            chemical projects.
+            based in Vadodara, Gujarat, founded in 2015 by Dr Divyesh Nagar.
+            We support clients with process R&amp;D, analytical testing, and
+            method development for pharmaceutical and chemical projects.
           </p>
-          <p className="mt-4 max-w-2xl text-base leading-relaxed text-foreground/75">
-            Our team focuses on delivering quality outcomes within practical
-            timelines and cost, while maintaining strict quality standards for
-            each project requirement.
-          </p>
-
-          <div className="mt-8 flex flex-wrap gap-2">
-            {capabilities.map((item) => (
-              <Badge key={item} variant="outline" className="rounded-none px-3">
-                {item}
-              </Badge>
-            ))}
+          <div className="mt-8">
+            <Button asChild variant="outline" className="rounded-none">
+              <Link href="/about">Learn More</Link>
+            </Button>
           </div>
         </div>
 
-        <Card className="rounded-none border-foreground/15 py-0">
-          <CardHeader className="border-b border-foreground/10 py-6">
-            <CardTitle className="text-xl">Dr Divyesh Nagar</CardTitle>
-            <CardDescription>
-              MSc, PhD - Pharmaceutical Chemistry
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-4 py-6 text-sm leading-relaxed text-foreground/75">
-            <p>
-              Founder and Director of Dr Nagar&apos;s Laboratories with over 18
-              years of industry and research experience in chemical and
-              pharmaceutical development.
+        <div className="space-y-6 border border-foreground/15 p-6">
+          <div>
+            <p className="text-sm font-medium">Dr Divyesh Nagar</p>
+            <p className="mt-1 text-xs text-foreground/60">
+              Founder & Director · MSc, PhD — Pharmaceutical Chemistry
             </p>
-            <p>
-              Established DRNL in 2015 to deliver process innovation, analytical
-              precision, and dependable manufacturing support for diverse
-              chemistry projects.
-            </p>
-          </CardContent>
-        </Card>
+          </div>
+          <p className="text-sm leading-relaxed text-foreground/70">
+            18+ years of industry and research experience across leading
+            chemical and pharmaceutical organisations in India.
+          </p>
+        </div>
       </div>
 
       <div className="mt-14">

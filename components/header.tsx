@@ -44,7 +44,7 @@ export function Header() {
             Projects
           </Link>
           <Link
-            href="/#about"
+            href="/about"
             className="text-foreground/75 transition-colors hover:text-foreground">
             About
           </Link>
