@@ -127,3 +127,52 @@
     @apply bg-background font-sans text-foreground antialiased;
   }
 }
+
+@layer utilities {
+  .micro-hover {
+    transition-property: transform;
+    transition-duration: 150ms;
+    transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+
+    &:hover {
+      transform: translateY(-1px);
+    }
+  }
+
+  .micro-press {
+    transition-property: transform;
+    transition-duration: 150ms;
+    transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+
+    &:active {
+      transform: scale(0.98) translateY(0);
+    }
+  }
+
+  .micro-interactive {
+    transition-property: transform;
+    transition-duration: 150ms;
+    transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+
+    &:hover {
+      transform: translateY(-1px);
+    }
+
+    &:active {
+      transform: scale(0.98) translateY(0);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .micro-hover,
+  .micro-press,
+  .micro-interactive {
+    transition: none !important;
+
+    &:hover,
+    &:active {
+      transform: none !important;
+    }
+  }
+}

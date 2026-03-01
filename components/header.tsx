@@ -35,22 +35,22 @@ export function Header() {
         <nav className="flex items-center gap-6 text-sm">
           <Link
             href="/services"
-            className="text-foreground/75 transition-colors hover:text-foreground">
+            className="text-foreground/75 transition-all duration-150 ease-out hover:text-foreground active:scale-[0.98]">
             Services
           </Link>
           <Link
             href="/projects"
-            className="text-foreground/75 transition-colors hover:text-foreground">
+            className="text-foreground/75 transition-all duration-150 ease-out hover:text-foreground active:scale-[0.98]">
             Projects
           </Link>
           <Link
             href="/about"
-            className="text-foreground/75 transition-colors hover:text-foreground">
+            className="text-foreground/75 transition-all duration-150 ease-out hover:text-foreground active:scale-[0.98]">
             About
           </Link>
           <Link
             href="/#contact"
-            className="text-foreground/75 transition-colors hover:text-foreground">
+            className="text-foreground/75 transition-all duration-150 ease-out hover:text-foreground active:scale-[0.98]">
             Contact
           </Link>
         </nav>
