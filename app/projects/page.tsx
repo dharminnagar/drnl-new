@@ -1,25 +1,23 @@
 import type { Metadata } from "next";
 import { LineReveal } from "@/components/line-reveal";
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export const metadata: Metadata = {
   title: "Projects & Capabilities | Dr Nagar's Laboratories",
   description:
-    "Explore our project segments and synthetic capabilities across pharmaceuticals, chemicals, and specialized materials.",
+    "Project segments and synthetic capabilities across pharmaceuticals, chemicals, and specialised materials.",
 };
 
 const projectSegments = [
-  "Pharmaceutical (API & Formulation)",
-  "Herbal Extraction",
-  "Chemicals (Organic & Inorganic)",
-  "Polymers",
-  "Dyes & Pigments",
-  "Pesticides",
-  "Perfumery",
-  "Petroleum",
-  "Nano Substance",
-  "Waste & Disposal Management",
+  { label: "Pharmaceutical (API & Formulation)", note: "Drug substance & formulation" },
+  { label: "Herbal Extraction", note: "Natural product isolation" },
+  { label: "Chemicals (Organic & Inorganic)", note: "Custom synthesis" },
+  { label: "Polymers", note: "Material science" },
+  { label: "Dyes & Pigments", note: "Colour chemistry" },
+  { label: "Pesticides", note: "Agrochemical" },
+  { label: "Perfumery", note: "Fragrance compounds" },
+  { label: "Petroleum", note: "Hydrocarbon chemistry" },
+  { label: "Nano Substance", note: "Nanomaterial R&D" },
+  { label: "Waste & Disposal Management", note: "Environmental chemistry" },
 ];
 
 const syntheticCapabilities = [
@@ -31,67 +29,71 @@ const syntheticCapabilities = [
   "New Drug Development",
   "Process Infringement",
   "Isolation of Pure Product from Crude",
-  "Isolation of Unknown compound",
+  "Isolation of Unknown Compound",
 ];
 
 export default function ProjectsPage() {
   return (
-    <div className="mx-auto w-full max-w-6xl px-6 py-20 md:py-24">
+    <div className="mx-auto w-full max-w-6xl px-6 py-20 md:py-28">
       <div className="mb-14">
-        <p className="mb-3 text-xs uppercase tracking-[0.25em] text-foreground/60">
-          Projects
-        </p>
-        <h1 className="text-3xl font-semibold tracking-tight md:text-5xl">
-          Capabilities & Project Segments
+        <div className="mb-4 inline-flex w-fit items-center gap-1.5 rounded-full border border-foreground/10 bg-foreground/5 px-3 py-1">
+          <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-foreground/50">
+            Projects
+          </span>
+        </div>
+        <h1 className="text-3xl font-semibold tracking-tight text-balance md:text-5xl">
+          Capabilities & project segments
         </h1>
-        <p className="mt-6 max-w-2xl text-base leading-relaxed text-foreground/75">
-          Our team has expertise in developing novel processes and manufacturing
-          technologies across a wide range of project segments. We deliver
-          custom synthesis projects with the quantity and quality required by
-          our clients.
+        <p className="mt-5 max-w-xl text-pretty text-base leading-relaxed text-foreground/55">
+          Expertise in developing novel processes and manufacturing technologies
+          across a wide range of chemical segments.
         </p>
       </div>
 
-      <div className="grid gap-10 md:grid-cols-[1.15fr_0.85fr]">
-        <div className="flex flex-col gap-10">
-          <section>
-            <h2 className="mb-6 text-xl font-semibold tracking-tight">
-              Project Capabilities
-            </h2>
-            <div className="grid gap-3 sm:grid-cols-2">
-              {projectSegments.map((segment) => (
-                <Card
-                  key={segment}
-                  className="rounded-none border-foreground/15 py-0 shadow-none">
-                  <CardHeader className="p-4">
-                    <CardTitle className="text-sm font-medium leading-relaxed">
-                      {segment}
-                    </CardTitle>
-                  </CardHeader>
-                </Card>
-              ))}
-            </div>
-          </section>
+      <div className="grid gap-6 md:grid-cols-[1.2fr_0.8fr]">
+        {/* Project segments */}
+        <div>
+          <p className="mb-5 text-xs font-medium uppercase tracking-[0.18em] text-foreground/40">
+            Project capabilities
+          </p>
+          <div className="grid gap-3 sm:grid-cols-2">
+            {projectSegments.map((segment, index) => (
+              <div
+                key={segment.label}
+                className="rounded-2xl border border-foreground/8 bg-foreground/[0.03] p-1.5">
+                <div className="rounded-[calc(1rem-6px)] bg-card px-4 py-3.5 flex items-start justify-between gap-3">
+                  <div>
+                    <p className="text-sm font-medium leading-snug text-balance">{segment.label}</p>
+                    <p className="mt-0.5 text-xs text-foreground/40">{segment.note}</p>
+                  </div>
+                  <span className="text-xs text-foreground/20 font-mono shrink-0 mt-0.5 tabular-nums">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
-        <div className="flex flex-col gap-10">
-          <section>
-            <h2 className="mb-6 text-xl font-semibold tracking-tight">
-              Synthetic Capabilities
-            </h2>
-            <Card className="rounded-none border-foreground/15 py-0 shadow-none">
-              <CardContent className="flex flex-wrap gap-2 p-6">
+        {/* Synthetic capabilities */}
+        <div>
+          <p className="mb-5 text-xs font-medium uppercase tracking-[0.18em] text-foreground/40">
+            Synthetic capabilities
+          </p>
+          <div className="rounded-2xl border border-foreground/8 bg-foreground/[0.03] p-1.5">
+            <div className="rounded-[calc(1rem-6px)] bg-card p-5">
+              <ul className="divide-y divide-foreground/6">
                 {syntheticCapabilities.map((capability) => (
-                  <Badge
+                  <li
                     key={capability}
-                    variant="outline"
-                    className="rounded-none px-3 py-1 text-xs font-normal text-foreground/80">
+                    className="flex items-center gap-2.5 py-3 text-sm text-foreground/60">
+                    <span className="h-1 w-1 rounded-full bg-primary/50 shrink-0" />
                     {capability}
-                  </Badge>
+                  </li>
                 ))}
-              </CardContent>
-            </Card>
-          </section>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
 
